@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Wala toggle</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            box-sizing: border-box;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        body.dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+        .container{
+            position: relative;
+            width: 150px;
+            height: 53px;
+            display: flex;
+            /* justify-content: flex-start; */
+            align-items: center;
+            border-radius: 25px;
+            background-color:rgb(61, 201, 248) ;
+            /* cursor: pointer; */
+            overflow: hidden;
+        }
+        .toggle {
+            position: absolute;
+            /* top: 0; */
+            left: 2px; 
+            width: 30%;
+            height: 90%;
+            border-radius: 50%;
+            background-color: #fff;
+            background: none;
+            cursor: pointer;
+            transition: all 0.3s ease-in;
+        }
+        .toggle.active {
+            background: #fff;
+            background: none;
+            position: absolute;
+            left:68%;
+
+        } 
+        body.dark-mode .container {
+            background-color: #000;
+        }
+        .toggle.active::before {
+            content: url(moon.png);
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 14px;
+        }
+        .toggle:not(.active)::after {
+            content: url(sunny.png);
+            position: absolute;
+            left: 10px;
+            top: 52%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="toggle" onclick="this.classList.toggle('active'); document.body.classList.toggle('dark-mode');"></div>
+
+        </div>
+    </div>
+</body>
+</html>
